@@ -1,5 +1,5 @@
 <label for="codprod_id">Código de Producto:</label>
-        <input type="number" name="codprod_id" placeholder="Codigo de Producto" id="codprod_id" value="<?=$producto['codprod_id'] ?>">
+        <input type="number" name="codprod_id" placeholder="Codigo de Producto" id="codprod_id" value="<?=old('codprod_id',$producto['codprod_id']) ?>">
         <label for="nombre_producto">Nombre:</label>
         <input type="text" name="nombre_producto" placeholder="Nombre del Producto" id="nombre_producto" value="<?=$producto['nombre_producto'] ?>">
         <label for="descripcion_producto">Descripción:</label>

@@ -19,6 +19,7 @@ class Producto extends BaseController
     {
         //echo view('producto/new');
         $productoModel = new ProductoModel();
+        if($this->validate('productos')){
         $productoModel->insert([
             'codprod_id' => $this->request->getPost('codprod_id'),
             'nombre_producto' => $this->request->getPost('nombre_producto'),
@@ -27,6 +28,12 @@ class Producto extends BaseController
             'precio_producto' => $this->request->getPost('precio_producto'),
             'cantidad_producto' => $this->request->getPost('cantidad_producto'),
         ]);
+    }else{
+        session()->setFlashdata([
+            'validation' => $this->validator 
+        ]);
+        return redirect()->back()->withInput();
+    }
         return redirect()->to('/dashboard/producto')->with('mensaje','Producto creado de manera correcta');
     }
 
@@ -48,7 +55,6 @@ class Producto extends BaseController
     {
         //echo view('producto/new');
         $productoModel = new ProductoModel();
-        $productoModel = new ProductoModel();
         echo view ('dashboard/producto/edit',[
             'producto' => $productoModel->find($id)
         ]);
@@ -58,6 +64,7 @@ class Producto extends BaseController
     {
         //echo view('producto/new');
         $productoModel = new ProductoModel();
+        if($this->validate('productos')){
         $productoModel->update($id,[
             'codprod_id' => $this->request->getPost('codprod_id'),
             'nombre_producto' => $this->request->getPost('nombre_producto'),
@@ -66,6 +73,12 @@ class Producto extends BaseController
             'precio_producto' => $this->request->getPost('precio_producto'),
             'cantidad_producto' => $this->request->getPost('cantidad_producto'),
         ]);
+    }else{
+        session()->setFlashdata([
+            'validation' => $this->validator 
+        ]);
+        return redirect()->back()->withInput();
+    }
         return redirect()->to('/dashboard/producto')->with('mensaje','Producto editado de manera correcta');
     }
 

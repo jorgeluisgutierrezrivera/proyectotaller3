@@ -41,4 +41,13 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+    public $clientes = [
+
+        'cicli_id' => 'required|min_length[4]|max_length[10]'
+    ];
+
+    public $productos = [
+
+        'codprod_id' => 'required|min_length[4]|max_length[10]'
+    ];
 }

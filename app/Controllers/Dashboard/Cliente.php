@@ -19,6 +19,7 @@ class Cliente extends BaseController
     {
         //echo view('cliente/new');
         $clienteModel = new ClienteModel();
+        if($this->validate('clientes')){
         $clienteModel->insert([
             'cicli_id' => $this->request->getPost('cicli_id'),
             'nombre_cliente' => $this->request->getPost('nombre_cliente'),
@@ -27,6 +28,13 @@ class Cliente extends BaseController
             'celular_cliente' => $this->request->getPost('celular_cliente'),
             'correo_cliente' => $this->request->getPost('correo_cliente'),
         ]);
+    }else{
+        session()->setFlashdata([
+            'validation' => $this->validator 
+        ]);
+        return redirect()->back()->withInput();
+    }
+
         return redirect()->to('/dashboard/cliente')->with('mensaje','Cliente creado de manera correcta');
     }
 
@@ -48,7 +56,6 @@ class Cliente extends BaseController
     {
         //echo view('cliente/new');
         $clienteModel = new ClienteModel();
-        $clienteModel = new ClienteModel();
         echo view ('dashboard/cliente/edit',[
             'cliente' => $clienteModel->find($id)
         ]);
@@ -58,14 +65,24 @@ class Cliente extends BaseController
     {
         //echo view('cliente/new');
         $clienteModel = new ClienteModel();
-        $clienteModel->update($id,[
-            'cicli_id' => $this->request->getPost('cicli_id'),
-            'nombre_cliente' => $this->request->getPost('nombre_cliente'),
-            'apellido_cliente' => $this->request->getPost('apellido_cliente'),
-            'direccion_cliente' => $this->request->getPost('direccion_cliente'),
-            'celular_cliente' => $this->request->getPost('celular_cliente'),
-            'correo_cliente' => $this->request->getPost('correo_cliente'),
-        ]);
+
+        if($this->validate('clientes')){
+            $clienteModel->update($id,[
+                'cicli_id' => $this->request->getPost('cicli_id'),
+                'nombre_cliente' => $this->request->getPost('nombre_cliente'),
+                'apellido_cliente' => $this->request->getPost('apellido_cliente'),
+                'direccion_cliente' => $this->request->getPost('direccion_cliente'),
+                'celular_cliente' => $this->request->getPost('celular_cliente'),
+                'correo_cliente' => $this->request->getPost('correo_cliente'),
+            ]);
+        }else{
+            session()->setFlashdata([
+                'validation' => $this->validator 
+            ]);
+            return redirect()->back()->withInput();
+        }
+
+        
         return redirect()->to('/dashboard/cliente')->with('mensaje','Cliente editado de manera correcta');
     }
 
