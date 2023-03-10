@@ -8,6 +8,7 @@ class ProductoModel extends Model
 {
     protected $table = 'productos';
     protected $primaryKey = 'codprod_id';
+    protected $returnType = 'object';
     protected $allowedFields = ['codprod_id','nombre_producto','descripcion_producto','categoria_producto','precio_producto','cantidad_producto'];
 
     public function getCliente($codprod_id = null)

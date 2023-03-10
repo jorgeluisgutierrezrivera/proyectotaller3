@@ -40,14 +40,7 @@ class Producto extends BaseController
     public function new()
     {
         echo view ('dashboard/producto/new',[
-            'producto'=> [
-            'codprod_id' => '',
-            'nombre_producto' => '',
-            'descripcion_producto' => '',
-            'categoria_producto' => '',
-            'precio_producto' => '',
-            'cantidad_producto' => '',
-            ]
+            'producto'=> new ProductoModel()
         ]);
     }
 

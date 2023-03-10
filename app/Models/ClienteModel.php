@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class ClienteModel extends Model
 {
     protected $table = 'clientes';
+    protected $returnType = 'object';
     protected $primaryKey = 'cicli_id';
     protected $allowedFields = ['cicli_id','nombre_cliente','apellido_cliente','direccion_cliente','celular_cliente','correo_cliente'];
 

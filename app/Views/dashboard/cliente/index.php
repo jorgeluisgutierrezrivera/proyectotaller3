@@ -31,15 +31,15 @@
         </tr>
         <?php foreach ($clientes as $key => $cli) :?>
             <tr>
-                <td><?= $cli['cicli_id'] ?></td>
-                <td><?= $cli['nombre_cliente'] ?></td>
-                <td><?= $cli['apellido_cliente'] ?></td>
-                <td><?= $cli['direccion_cliente'] ?></td>
-                <td><?= $cli['celular_cliente'] ?></td>
-                <td><?= $cli['correo_cliente'] ?></td>
-                <td><a href="/dashboard/cliente/show/<?= $cli['cicli_id'] ?>">Mostrar</a>
-                <a href="/dashboard/cliente/edit/<?= $cli['cicli_id'] ?>">Editar</a>
-                <form action="/dashboard/cliente/delete/<?= $cli['cicli_id'] ?>" method="POST">
+                <td><?= $cli->cicli_id ?></td>
+                <td><?= $cli->nombre_cliente ?></td>
+                <td><?= $cli->apellido_cliente ?></td>
+                <td><?= $cli->direccion_cliente ?></td>
+                <td><?= $cli->celular_cliente ?></td>
+                <td><?= $cli->correo_cliente ?></td>
+                <td><a href="/dashboard/cliente/show/<?= $cli->cicli_id ?>">Mostrar</a>
+                <a href="/dashboard/cliente/edit/<?= $cli->cicli_id ?>">Editar</a>
+                <form action="/dashboard/cliente/delete/<?= $cli->cicli_id ?>" method="POST">
                 <button type="submit">Eliminar</button>
                 </form></td>
                 

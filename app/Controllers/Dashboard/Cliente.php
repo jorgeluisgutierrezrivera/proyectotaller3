@@ -41,14 +41,7 @@ class Cliente extends BaseController
     public function new()
     {
         echo view ('dashboard/cliente/new',[
-            'cliente'=> [
-            'cicli_id' => '',
-            'nombre_cliente' => '',
-            'apellido_cliente' => '',
-            'direccion_cliente' => '',
-            'celular_cliente' => '',
-            'correo_cliente' => '',
-            ]
+            'cliente'=> new ClienteModel()
         ]);
     }
 
