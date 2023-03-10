@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
+use App\Controllers\BaseController;
 use App\Models\ClienteModel;
 
 class Cliente extends BaseController
@@ -9,7 +10,7 @@ class Cliente extends BaseController
     public function show($id)
     {
         $clienteModel = new ClienteModel();
-        echo view ('cliente/show',[
+        echo view ('dashboard/cliente/show',[
             'cliente' => $clienteModel->find($id)
         ]);
     }
@@ -26,12 +27,12 @@ class Cliente extends BaseController
             'celular_cliente' => $this->request->getPost('celular_cliente'),
             'correo_cliente' => $this->request->getPost('correo_cliente'),
         ]);
-        echo 'creado';
+        return redirect()->to('/dashboard/cliente');
     }
 
     public function new()
     {
-        echo view('cliente/new',[
+        echo view ('dashboard/cliente/new',[
             'cliente'=> [
             'cicli_id' => '',
             'nombre_cliente' => '',
@@ -48,7 +49,7 @@ class Cliente extends BaseController
         //echo view('cliente/new');
         $clienteModel = new ClienteModel();
         $clienteModel = new ClienteModel();
-        echo view ('cliente/edit',[
+        echo view ('dashboard/cliente/edit',[
             'cliente' => $clienteModel->find($id)
         ]);
     }
@@ -65,7 +66,7 @@ class Cliente extends BaseController
             'celular_cliente' => $this->request->getPost('celular_cliente'),
             'correo_cliente' => $this->request->getPost('correo_cliente'),
         ]);
-        echo 'update';
+        return redirect()->to('/dashboard/cliente');
     }
 
     public function delete($id)
@@ -73,7 +74,7 @@ class Cliente extends BaseController
         //echo view('cliente/new');
         $clienteModel = new ClienteModel();
         $clienteModel->delete($id);
-        echo 'delete';
+        return redirect()->to('/dashboard/cliente');
     }
 
 
@@ -81,7 +82,7 @@ class Cliente extends BaseController
     {
         $clienteModel = new ClienteModel();
         
-        echo view ('cliente/index', [
+        echo view ('dashboard/cliente/index', [
             'clientes' => $clienteModel->findAll(),
         ]);
     }

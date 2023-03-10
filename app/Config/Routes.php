@@ -30,8 +30,12 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->presenter('cliente');
-$routes->presenter('producto');
+
+$routes->group('dashboard',function($routes){
+    $routes->presenter('cliente',['controller'=>'Dashboard\Cliente']);
+    $routes->presenter('producto',['controller'=>'Dashboard\Producto']);
+});
+
 
 
 /*

@@ -9,7 +9,7 @@
 <body>
     <h1>Listado de Clientes</h1>
 
-    <td><a href="/cliente/new">Añadir Cliente</a></td>
+    <td><a href="/dashboard/cliente/new">Añadir Cliente</a></td>
 
     <table>
         <tr>
@@ -43,9 +43,9 @@
                 <td><?= $cli['direccion_cliente'] ?></td>
                 <td><?= $cli['celular_cliente'] ?></td>
                 <td><?= $cli['correo_cliente'] ?></td>
-                <td><a href="/cliente/show/<?= $cli['cicli_id'] ?>">Mostrar</a>
-                <a href="/cliente/edit/<?= $cli['cicli_id'] ?>">Editar</a>
-                <form action="/cliente/delete/<?= $cli['cicli_id'] ?>" method="POST">
+                <td><a href="/dashboard/cliente/show/<?= $cli['cicli_id'] ?>">Mostrar</a>
+                <a href="/dashboard/cliente/edit/<?= $cli['cicli_id'] ?>">Editar</a>
+                <form action="/dashboard/cliente/delete/<?= $cli['cicli_id'] ?>" method="POST">
                 <button type="submit">Eliminar</button>
                 </form></td>
                 

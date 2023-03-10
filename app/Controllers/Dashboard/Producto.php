@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
+use App\Controllers\BaseController;
 use App\Models\ProductoModel;
 
 class Producto extends BaseController
@@ -9,7 +10,7 @@ class Producto extends BaseController
     public function show($id)
     {
         $productoModel = new ProductoModel();
-        echo view ('producto/show',[
+        echo view ('dashboard/producto/show',[
             'producto' => $productoModel->find($id)
         ]);
     }
@@ -26,12 +27,12 @@ class Producto extends BaseController
             'precio_producto' => $this->request->getPost('precio_producto'),
             'cantidad_producto' => $this->request->getPost('cantidad_producto'),
         ]);
-        echo 'creado';
+        return redirect()->to('/dashboard/producto');
     }
 
     public function new()
     {
-        echo view('producto/new',[
+        echo view ('dashboard/producto/new',[
             'producto'=> [
             'codprod_id' => '',
             'nombre_producto' => '',
@@ -48,7 +49,7 @@ class Producto extends BaseController
         //echo view('producto/new');
         $productoModel = new ProductoModel();
         $productoModel = new ProductoModel();
-        echo view ('producto/edit',[
+        echo view ('dashboard/producto/edit',[
             'producto' => $productoModel->find($id)
         ]);
     }
@@ -65,7 +66,7 @@ class Producto extends BaseController
             'precio_producto' => $this->request->getPost('precio_producto'),
             'cantidad_producto' => $this->request->getPost('cantidad_producto'),
         ]);
-        echo 'update';
+        return redirect()->to('/dashboard/producto');
     }
 
     public function delete($id)
@@ -73,7 +74,7 @@ class Producto extends BaseController
         //echo view('producto/new');
         $productoModel = new ProductoModel();
         $productoModel->delete($id);
-        echo 'delete';
+        return redirect()->to('/dashboard/producto');
     }
 
 
@@ -81,7 +82,7 @@ class Producto extends BaseController
     {
         $productoModel = new ProductoModel();
         
-        echo view ('producto/index', [
+        echo view ('dashboard/producto/index', [
             'productos' => $productoModel->findAll(),
         ]);
     }

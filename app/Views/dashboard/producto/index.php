@@ -9,7 +9,7 @@
 <body>
     <h1>Listado de Productos</h1>
 
-    <td><a href="/producto/new">Añadir Producto</a></td>
+    <td><a href="/dashboard/producto/new">Añadir Producto</a></td>
 
     <table>
         <tr>
@@ -43,9 +43,9 @@
                 <td><?= $prod['categoria_producto'] ?></td>
                 <td><?= $prod['precio_producto'] ?></td>
                 <td><?= $prod['cantidad_producto'] ?></td>
-                <td><a href="/producto/show/<?= $prod['codprod_id'] ?>">Mostrar</a>
-                <a href="/producto/edit/<?= $prod['codprod_id'] ?>">Editar</a>
-                <form action="/producto/delete/<?= $prod['codprod_id'] ?>" method="POST">
+                <td><a href="/dashboard/producto/show/<?= $prod['codprod_id'] ?>">Mostrar</a>
+                <a href="/dashboard/producto/edit/<?= $prod['codprod_id'] ?>">Editar</a>
+                <form action="/dashboardproducto/delete/<?= $prod['codprod_id'] ?>" method="POST">
                 <button type="submit">Eliminar</button>
                 </form></td>
                 
