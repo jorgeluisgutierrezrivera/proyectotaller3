@@ -7,6 +7,7 @@
     <title>Actualizar Producto</title>
 </head>
 <body>
+<?= view('partials/_session')?>
     <form action="/dashboard/producto/update/<?=$producto['codprod_id'] ?>" method="POST">
         <?= view('dashboard/producto/_form', ['op' =>'Actualizar'])?>
     </form>

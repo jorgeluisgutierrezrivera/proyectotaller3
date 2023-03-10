@@ -7,6 +7,9 @@
     <title>Crear Cliente</title>
 </head>
 <body>
+
+<?= view('partials/_session')?>
+
     <form action="/dashboard/cliente/create" method="POST">
         <?= view('dashboard/cliente/_form', ['op' =>'Crear'])?>
     </form>

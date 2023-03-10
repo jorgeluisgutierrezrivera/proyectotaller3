@@ -9,6 +9,8 @@
 <body>
     <h1>Listado de Clientes</h1>
 
+    <?= view('partials/_session')?>
+
     <td><a href="/dashboard/cliente/new">Añadir Cliente</a></td>
 
     <table>

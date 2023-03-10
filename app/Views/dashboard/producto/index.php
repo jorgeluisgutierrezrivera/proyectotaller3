@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>Listado de Productos</h1>
-
+    
+    <?= view('partials/_session')?>
     <td><a href="/dashboard/producto/new">Añadir Producto</a></td>
 
     <table>

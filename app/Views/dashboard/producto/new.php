@@ -7,6 +7,7 @@
     <title>Crear Producto</title>
 </head>
 <body>
+<?= view('partials/_session')?>
     <form action="/dashboard/producto/create" method="POST">
         <?= view('dashboard/producto/_form', ['op' =>'Crear'])?>
     </form>

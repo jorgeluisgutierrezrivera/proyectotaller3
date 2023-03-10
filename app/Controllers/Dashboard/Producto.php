@@ -27,7 +27,7 @@ class Producto extends BaseController
             'precio_producto' => $this->request->getPost('precio_producto'),
             'cantidad_producto' => $this->request->getPost('cantidad_producto'),
         ]);
-        return redirect()->to('/dashboard/producto');
+        return redirect()->to('/dashboard/producto')->with('mensaje','Producto creado de manera correcta');
     }
 
     public function new()
@@ -66,7 +66,7 @@ class Producto extends BaseController
             'precio_producto' => $this->request->getPost('precio_producto'),
             'cantidad_producto' => $this->request->getPost('cantidad_producto'),
         ]);
-        return redirect()->to('/dashboard/producto');
+        return redirect()->to('/dashboard/producto')->with('mensaje','Producto editado de manera correcta');
     }
 
     public function delete($id)
@@ -74,7 +74,9 @@ class Producto extends BaseController
         //echo view('producto/new');
         $productoModel = new ProductoModel();
         $productoModel->delete($id);
-        return redirect()->to('/dashboard/producto');
+        session()->setFlashdata('mensaje','Producto Eliminado con éxito');
+        return redirect()->back();
+        //return redirect()->to('/dashboard/producto')->with('mensaje','Producto eliminado de manera correcta');
     }
 
 

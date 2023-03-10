@@ -7,6 +7,9 @@
     <title>Actualizar Cliente</title>
 </head>
 <body>
+
+    <?= view('partials/_session')?>
+
     <form action="/dashboard/cliente/update/<?=$cliente['cicli_id'] ?>" method="POST">
         <?= view('dashboard/cliente/_form', ['op' =>'Actualizar'])?>
     </form>

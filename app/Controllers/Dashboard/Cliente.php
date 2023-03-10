@@ -27,7 +27,7 @@ class Cliente extends BaseController
             'celular_cliente' => $this->request->getPost('celular_cliente'),
             'correo_cliente' => $this->request->getPost('correo_cliente'),
         ]);
-        return redirect()->to('/dashboard/cliente');
+        return redirect()->to('/dashboard/cliente')->with('mensaje','Cliente creado de manera correcta');
     }
 
     public function new()
@@ -66,7 +66,7 @@ class Cliente extends BaseController
             'celular_cliente' => $this->request->getPost('celular_cliente'),
             'correo_cliente' => $this->request->getPost('correo_cliente'),
         ]);
-        return redirect()->to('/dashboard/cliente');
+        return redirect()->to('/dashboard/cliente')->with('mensaje','Cliente editado de manera correcta');
     }
 
     public function delete($id)
@@ -74,7 +74,9 @@ class Cliente extends BaseController
         //echo view('cliente/new');
         $clienteModel = new ClienteModel();
         $clienteModel->delete($id);
-        return redirect()->to('/dashboard/cliente');
+        session()->setFlashdata('mensaje','Cliente eliminado con éxito');
+        return redirect()->back();
+        //return redirect()->to('/dashboard/cliente');
     }
 
 
