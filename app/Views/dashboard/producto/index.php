@@ -39,7 +39,7 @@
                 <td><?= $prod->cantidad_producto ?></td>
                 <td><a href="/dashboard/producto/show/<?= $prod->codprod_id ?>">Mostrar</a>
                 <a href="/dashboard/producto/edit/<?= $prod->codprod_id ?>">Editar</a>
-                <form action="/dashboardproducto/delete/<?= $prod->codprod_id ?>" method="POST">
+                <form action="/dashboard/producto/delete/<?= $prod->codprod_id ?>" method="POST">
                 <button type="submit">Eliminar</button>
                 </form></td>
                 

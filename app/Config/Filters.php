@@ -2,10 +2,12 @@
 
 namespace Config;
 
-use CodeIgniter\Config\BaseConfig;
+use App\Filters\MiFiltro;
 use CodeIgniter\Filters\CSRF;
-use CodeIgniter\Filters\DebugToolbar;
+use App\Filters\DashboardFilter;
 use CodeIgniter\Filters\Honeypot;
+use CodeIgniter\Config\BaseConfig;
+use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 
@@ -21,6 +23,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'DashboardFilter' => DashboardFilter::class,
+        //'mifiltro' => MiFiltro::class
     ];
 
     /**
@@ -29,6 +33,7 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
+            //'mifiltro'
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
@@ -60,5 +65,17 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'DashboardFilter' => [
+            'before' => [
+                'dashboard',
+                'dashboard/*'
+            ]
+    ],
+        //'mifiltro' => [
+        //    'before'=>[
+        //        'dashboard/producto'
+        //    ]
+        //]
+    ];
 }

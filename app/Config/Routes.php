@@ -34,9 +34,16 @@ $routes->get('/', 'Home::index');
 $routes->group('dashboard',function($routes){
     $routes->presenter('cliente',['controller'=>'Dashboard\Cliente']);
     $routes->presenter('producto',['controller'=>'Dashboard\Producto']);
+    //$routes->presenter('usuario',['controller'=>'Web\Usuario']);
+    //$routes->get('usuario/creacion','Web\Usuario::crear_usuario');
+    //$routes->get('usuario/probar/contrasena','Web\Usuario::probar_contrasena');
 });
 
-
+$routes->get('login','Web\Usuario::login',['as'=>'usuario.login']);
+$routes->post('login_post','Web\Usuario::login_post',['as'=>'usuario.login_post']);
+$routes->get('register','Web\Usuario::register',['as'=>'usuario.register']);
+$routes->post('register_post','Web\Usuario::register_post',['as'=>'usuario.register_post']);
+$routes->get('logout','Web\Usuario::logout',['as'=>'usuario.logout']);
 
 /*
  * --------------------------------------------------------------------

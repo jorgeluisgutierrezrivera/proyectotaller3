@@ -1,0 +1,10 @@
+<?= $this->extend('Layouts/dashboard')?>
+<?= $this->section('contenido')?>
+                <h1><?= $usuario->ciusu_id ?></h1>
+                <h1><?= $usuario->nombre_usuario ?></h1>
+                <h1><?= $usuario->apellido_usuario ?></h1>
+                <p><?= $usuario->direccion_usuario ?></p>
+                <p><?= $usuario->correo_usuario ?></p>
+                <p><?= $usuario->telefono_usuario ?></p>
+                <p><?= $usuario->contrasena_usuario ?></p>
+                <?= $this->endSection()?>

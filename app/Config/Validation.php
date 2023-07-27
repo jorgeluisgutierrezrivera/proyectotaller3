@@ -50,4 +50,11 @@ class Validation extends BaseConfig
 
         'codprod_id' => 'required|min_length[4]|max_length[10]'
     ];
+
+    public $usuarios = [
+
+        'ciusu_id' => 'required|min_length[4]|max_length[10]|is_unique[usuarios.ciusu_id]',
+        'correo_usuario' => 'required|min_length[4]|max_length[50]|is_unique[usuarios.correo_usuario]',
+        'contrasena_usuario' => 'required|min_length[4]|max_length[20]',
+    ];
 }
